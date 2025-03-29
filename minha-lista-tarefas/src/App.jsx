@@ -1,14 +1,14 @@
-import ListaTarefas from "./components/ListaTarefas";
+import ListaTarefas from "./compontents/ListaTarefas"
 
-import "./App.css";
+import "./App.css"
 
 function App() {
   return (
     <>
-      <h1>Gerenciador de tarefas</h1>
-      <ListaTarefas />
-    </>
-  );
+    <h1>Gerenciador de Tarefas</h1>
+    <ListaTarefas />
+    </> 
+  )
 }
 
-export default App;
+export default App
