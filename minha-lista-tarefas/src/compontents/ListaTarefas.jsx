@@ -1,30 +1,34 @@
-import { useState } from "react";
+import { useState } from "react";//possibilita o uso do setState
+import "./ListaTarefas.css";//importa o css
 
-function ListaTarefas() {
-    const [tarefas, setTarefas] = useState([]);
-    const [novaTarefa, setNovaTarefa] = useState("");
+function ListaTarefas() {//cria a função ListaTarefas
+    const [tarefas, setTarefas] = useState([]);//cria o objeto tarefas
+    const [novaTarefa, setNovaTarefa] = useState("");//deixa o estado da novaTarefa em branco
 
-    function adicionarTarefa() {
-        setTarefas([...tarefas, novaTarefa]);
-        setNovaTarefa("");
+    function adicionarTarefa() {//cria função de adicionar uma nova tarefa
+        setTarefas([...tarefas, novaTarefa]);//cria a nova tarefa
+        setNovaTarefa("")//deixa ela em branco para entrar o dado do input
     }
 
-    const removerTarefa = (indice) => {
-        setTarefas(tarefas.filter((_, i) => i !== indice));
+    const removerTarefa = (indice) => {//cria a arrow function de remover uma tarefa adicionando um índice para cada tarefa
+        setTarefas(tarefas.filter((_, i) => i !== indice));//remove a tarefa filtrando-a pelo indice
     };
 
-    return (
-        <div>
-            <h2>Lista de Tarefas</h2>
-            <input
+    return (//possibilita o retorno da interface na tela
+        <div> 
+            <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
+            
+          {/* cria o input com o valor do que você quer inserir na nova tarefa */}
+            <input   
                 type="text"
                 value={novaTarefa}
                 onChange={(e) => setNovaTarefa(e.target.value)}
                 placeholder="Digite uma nova tarefa"
             />
-            <button onClick={adicionarTarefa}>Adicionar</button>
+            <button onClick={adicionarTarefa}>Adicionar</button> {/*botão de adicionar com a funçao de adicionar um atarefa */}
             <ul>
-                {tarefas.map((tarefa, indice) => (
+               {/*lista a tarefa pelo índice e cria o botão de remover pelo índice também */} 
+               {tarefas.map((tarefa, indice) => (
                     <li key={indice}>
                         {tarefa}
                         <button onClick={() => removerTarefa(indice)}>Remover</button>
@@ -35,4 +39,4 @@ function ListaTarefas() {
     );
 }
 
-export default ListaTarefas;
+export default ListaTarefas; {/*exporta a função principal listaTarefas */}
