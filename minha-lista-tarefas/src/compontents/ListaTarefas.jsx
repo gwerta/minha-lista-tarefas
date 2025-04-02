@@ -15,7 +15,7 @@ function ListaTarefas() {//cria a função ListaTarefas
     };
 
     return (//possibilita o retorno da interface na tela
-        <div> 
+        <div class='feliz'> 
             <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
             
           {/* cria o input com o valor do que você quer inserir na nova tarefa */}

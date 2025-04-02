@@ -1,4 +1,9 @@
-body{
+.feliz{
     background-color: darkgrey;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    flex-direction: column;
 }
+
 
