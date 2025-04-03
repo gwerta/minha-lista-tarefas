@@ -15,8 +15,9 @@ function ListaTarefas() {//cria a função ListaTarefas
     };
 
     return (//possibilita o retorno da interface na tela
-        <div class='feliz'> 
-            <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
+
+        <div className="lateral">
+        <div className='esquerda'> 
             
           {/* cria o input com o valor do que você quer inserir na nova tarefa */}
             <input   
@@ -24,17 +25,23 @@ function ListaTarefas() {//cria a função ListaTarefas
                 value={novaTarefa}
                 onChange={(e) => setNovaTarefa(e.target.value)}
                 placeholder="Digite uma nova tarefa"
+                
             />
-            <button onClick={adicionarTarefa}>Adicionar</button> {/*botão de adicionar com a funçao de adicionar um atarefa */}
+            <button className='add' onClick={adicionarTarefa}>Adicionar</button> {/*botão de adicionar com a funçao de adicionar um atarefa */}
+           
+            </div>
+            <div className='direita'>
+            <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
             <ul>
                {/*lista a tarefa pelo índice e cria o botão de remover pelo índice também */} 
                {tarefas.map((tarefa, indice) => (
                     <li key={indice}>
                         {tarefa}
-                        <button onClick={() => removerTarefa(indice)}>Remover</button>
+                        <button className='remo' onClick={() => removerTarefa(indice)}>x</button>
                     </li>
                 ))}
             </ul>
+            </div>
         </div>
     );
 }

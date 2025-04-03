@@ -7,6 +7,14 @@
 body{
   background-color: rgb(153, 112, 228);
 }
+h1{
+  margin-top: -10%;
+  margin-bottom: 10%;
+    color: #070064;
+    font-family: cursive;
+
+}
+
 
 .logo {
   height: 6em;

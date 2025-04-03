@@ -1,9 +1,73 @@
-.feliz{
-    background-color: darkgrey;
+.esquerda{
+    
     display: flex;
     align-items: center;
+    row-gap: 3vh;
     vertical-align: middle;
     flex-direction: column;
+    border-radius: 2%;
+}
+.texto{
+    color: black;
+    font-family: cursive;
+}
+h2{
+    color: #070064;
+    font-family: cursive;
+}
+.lateral{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+input{
+    border-radius: 3px;
+    border: 2;
+    border-color: #30A4FC;
+    background-color: #30A4FC;
+    min-width: 100px;
+    min-height: 30px;
+}
+input::placeholder{
+    color: black;
+    font-family: cursive;
 }
 
+.direita{
+    display: flex;
+    flex-direction: column;
+    background-color: #30A4FC;
+    padding: 2%;
+    margin-left: 5%;
+    border-radius: 5%;
+    max-width: 300%;
+   
+}
+.add{
+    background-color: #30A4FC;
+    font-family: cursive;
+}
+.add:hover{
+    background-color: #155d93;
+}
+.add::after{
+    border: none;
+}
+.remo{
+    font-family: cursive;
+    background-color: red;
+    margin: 5%;    
+    max-width: 35px;
+    min-width: 35px;
+    max-height: 100%;
+    padding: 1%;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+}
+li{
+    color: black;
+    font-family: cursive;
+  
+}
 
