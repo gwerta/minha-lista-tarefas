@@ -4,6 +4,7 @@ import "./ListaTarefas.css";//importa o css
 function ListaTarefas() {//cria a função ListaTarefas
     const [tarefas, setTarefas] = useState([]);//cria o objeto tarefas
     const [novaTarefa, setNovaTarefa] = useState("");//deixa o estado da novaTarefa em branco
+    const [ordemAlfabetica, setOrdemAlfabetica] = useState(false);
 
     function adicionarTarefa() {//cria função de adicionar uma nova tarefa
         setTarefas([...tarefas, novaTarefa]);//cria a nova tarefa
@@ -13,11 +14,17 @@ function ListaTarefas() {//cria a função ListaTarefas
     const removerTarefa = (indice) => {//cria a arrow function de remover uma tarefa adicionando um índice para cada tarefa
         setTarefas(tarefas.filter((_, i) => i !== indice));//remove a tarefa filtrando-a pelo indice
     };
+    const alternarOrdem = () => {
+        setOrdemAlfabetica(!ordemAlfabetica);
+      };
 
     return (//possibilita o retorno da interface na tela
 
         <div className="lateral">
         <div className='esquerda'> 
+        <button class='add' onClick={alternarOrdem}>
+        {ordemAlfabetica ? "Mostrar ordem original" : "Mostrar ordem alfabética"}
+      </button>
             
           {/* cria o input com o valor do que você quer inserir na nova tarefa */}
             <input   
@@ -34,7 +41,7 @@ function ListaTarefas() {//cria a função ListaTarefas
             <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
             <ul>
                {/*lista a tarefa pelo índice e cria o botão de remover pelo índice também */} 
-               {tarefas.map((tarefa, indice) => (
+               {(ordemAlfabetica ? [...tarefas].sort() : tarefas).map((tarefa, indice) => (
                     <li key={indice}>
                         {tarefa}
                         <button className='remo' onClick={() => removerTarefa(indice)}>x</button>
