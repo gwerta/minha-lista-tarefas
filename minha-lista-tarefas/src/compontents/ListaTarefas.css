@@ -7,10 +7,7 @@
     flex-direction: column;
     border-radius: 2%;
 }
-.texto{
-    color: black;
-    font-family: cursive;
-}
+
 h2{
     color: #070064;
     font-family: cursive;
@@ -20,13 +17,16 @@ h2{
     flex-direction: row;
     justify-content: space-between;
 }
-input{
+.insira{
     border-radius: 3px;
     border: 2;
     border-color: #30A4FC;
     background-color: #30A4FC;
     min-width: 100px;
     min-height: 30px;
+}
+.check{
+    margin-left: -5%;
 }
 input::placeholder{
     color: black;
@@ -68,6 +68,7 @@ input::placeholder{
 li{
     color: black;
     font-family: cursive;
+    list-style: none;
   
 }
 
