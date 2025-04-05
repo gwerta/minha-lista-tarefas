@@ -6,9 +6,12 @@ function ListaTarefas() {//cria a função ListaTarefas
     const [novaTarefa, setNovaTarefa] = useState("");//deixa o estado da novaTarefa em branco
     const [ordemAlfabetica, setOrdemAlfabetica] = useState(false);//cria a variável para mudar a ordem
 
-    function adicionarTarefa() {//cria função de adicionar uma nova tarefa
-        setTarefas([...tarefas, novaTarefa]);//cria a nova tarefa
-        setNovaTarefa("")//deixa ela em branco para entrar o dado do input
+    function adicionarTarefa() {//cria função de adicionar uma nova tarefa com o nome captado pela string e o status de concluida como falso
+        setTarefas([
+            ...tarefas,
+            { nome: novaTarefa, concluida: false }
+          ]);
+          setNovaTarefa("");//cria a nova tarefa
     }
 
     const removerTarefa = (indice) => {//cria a arrow function de remover uma tarefa adicionando um índice para cada tarefa
@@ -30,8 +33,8 @@ function ListaTarefas() {//cria a função ListaTarefas
 
         <div className="lateral">
         <div className='esquerda'> 
-        <button class='add' onClick={mudaOrdem}>
-        {ordemAlfabetica ? "Mostrar ordem normal" : "Mostrar ordem alfabética"}
+        <button class='add' onClick={mudaOrdem}><span className="text"> 
+        {ordemAlfabetica ?"Mostrar ordem normal" : "Mostrar ordem alfabética"}</span>
       </button>
             
           {/* cria o input com o valor do que você quer inserir na nova tarefa */}
@@ -40,29 +43,28 @@ function ListaTarefas() {//cria a função ListaTarefas
                 type="text"
                 value={novaTarefa}
                 onChange={(e) => setNovaTarefa(e.target.value)}
-                placeholder="Digite uma nova tarefa"
+                placeholder="Digite uma nova tarefa:"
                 
             />
-            <button className='add' onClick={adicionarTarefa}>Adicionar</button> {/*botão de adicionar com a funçao de adicionar um atarefa */}
+            <button className='add' onClick={adicionarTarefa}><span className="text">Adicionar</span></button> {/*botão de adicionar com a funçao de adicionar um atarefa */}
            
             </div>
             <div className='direita'>
             <h2>Lista de Tarefas</h2> {/* adiciona o titulo para a página */}
             <ul>
-               {/*lista a tarefa pelo índice e cria o botão de remover pelo índice também */} 
-               {(ordemAlfabetica ? [...tarefas].sort() : tarefas).map((tarefa, indice) => ( 
+               {/*lista a tarefa com a possibilidade de mudar a ordem original ou alfabética mantendo as tarefas checkadas */} 
+               {(ordemAlfabetica ? [...tarefas].sort((a, b) => a.nome.localeCompare(b.nome)) : tarefas).map((tarefa, indice) => (
                     <li key={indice}>
-                        {/*cria o checkbox para marcar a tarefa como concluída ou não */}
-                         <input
-                                className="check"
-                                type="checkbox"
-                                checked={tarefa.concluida}
-                                onChange={() => concluida(indice)}
-                            />
-                        {tarefa}
+                        <input
+                            className="check"
+                            type="checkbox"
+                            checked={tarefa.concluida}
+                            onChange={() => concluida(indice)}
+                        />
+                        {tarefa.nome}
                         <button className='remo' onClick={() => removerTarefa(indice)}>x</button>
                     </li>
-                ))}
+))}
             </ul>
             </div>
         </div>
