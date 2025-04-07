@@ -5,7 +5,7 @@ INSTALAÇÃO:
 
 FUNCIONAMENTO E OBJETIVO:
 
-O site é uma lista de tarefas simples que permite você ordenar as suas tarefas em ordem alfabética e realizar um cheque em quais você ja concluiu.
+  O site é uma lista de tarefas simples que permite você ordenar as suas tarefas em ordem alfabética e realizar um cheque em quais você ja concluiu.
 
 VIDEO EXPLICATIVO:
 
