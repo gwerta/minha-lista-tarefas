@@ -7,11 +7,13 @@ function ListaTarefas() {//cria a função ListaTarefas
     const [ordemAlfabetica, setOrdemAlfabetica] = useState(false);//cria a variável para mudar a ordem
 
     function adicionarTarefa() {//cria função de adicionar uma nova tarefa com o nome captado pela string e o status de concluida como falso
+     if(novaTarefa){//verifica se existe um valor na novaTarefa
         setTarefas([
             ...tarefas,
             { nome: novaTarefa, concluida: false }
           ]);
           setNovaTarefa("");//cria a nova tarefa
+        }
     }
 
     const removerTarefa = (indice) => {//cria a arrow function de remover uma tarefa adicionando um índice para cada tarefa
